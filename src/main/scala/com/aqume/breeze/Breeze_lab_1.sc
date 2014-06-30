@@ -1,4 +1,4 @@
-package com.aqume
+package com.aqume.breeze
 
 // https://github.com/scalanlp/breeze/wiki/Quickstart
 
@@ -14,15 +14,16 @@ object Breeze_lab_1 {
   x(1) = 2
   x(3 to 4) := .5                                 //> res1: breeze.linalg.DenseVector[Double] = DenseVector(0.5, 0.5)
   println(x)                                      //> DenseVector(0.0, 2.0, 0.0, 0.5, 0.5)
-  x(0 to 1) := DenseVector(.1, .2)                //> Jun 25, 2014 8:42:32 AM com.github.fommil.netlib.BLAS <clinit>
+  x(0 to 1) := DenseVector(.1, .2)                //> Jun 25, 2014 4:38:44 PM com.github.fommil.netlib.BLAS <clinit>
                                                   //| WARNING: Failed to load implementation from: com.github.fommil.netlib.Native
                                                   //| SystemBLAS
-                                                  //| Jun 25, 2014 8:42:32 AM com.github.fommil.netlib.BLAS <clinit>
+                                                  //| Jun 25, 2014 4:38:44 PM com.github.fommil.netlib.BLAS <clinit>
                                                   //| WARNING: Failed to load implementation from: com.github.fommil.netlib.Native
                                                   //| RefBLAS
                                                   //| res2: breeze.linalg.DenseVector[Double] = DenseVector(0.1, 0.2)
   x                                               //> res3: breeze.linalg.DenseVector[Double] = DenseVector(0.1, 0.2, 0.0, 0.5, 0.
                                                   //| 5)
+                          
   
   val matx1 = DenseMatrix.zeros[Int](5,5)         //> matx1  : breeze.linalg.DenseMatrix[Int] = 0  0  0  0  0  
                                                   //| 0  0  0  0  0  

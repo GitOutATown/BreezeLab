@@ -5,6 +5,7 @@ package com.aqume.breeze
 import breeze.linalg._
 
 object Breeze_lab_1 {
+
 	val x = DenseVector.zeros[Double](5)      //> x  : breeze.linalg.DenseVector[Double] = DenseVector(0.0, 0.0, 0.0, 0.0, 0.0
                                                   //| )
 	val x2 = DenseVector(1,2,3)               //> x2  : breeze.linalg.DenseVector[Int] = DenseVector(1, 2, 3)
@@ -14,10 +15,10 @@ object Breeze_lab_1 {
   x(1) = 2
   x(3 to 4) := .5                                 //> res1: breeze.linalg.DenseVector[Double] = DenseVector(0.5, 0.5)
   println(x)                                      //> DenseVector(0.0, 2.0, 0.0, 0.5, 0.5)
-  x(0 to 1) := DenseVector(.1, .2)                //> Jun 25, 2014 4:38:44 PM com.github.fommil.netlib.BLAS <clinit>
+  x(0 to 1) := DenseVector(.1, .2)                //> Jun 29, 2014 6:44:15 PM com.github.fommil.netlib.BLAS <clinit>
                                                   //| WARNING: Failed to load implementation from: com.github.fommil.netlib.Native
                                                   //| SystemBLAS
-                                                  //| Jun 25, 2014 4:38:44 PM com.github.fommil.netlib.BLAS <clinit>
+                                                  //| Jun 29, 2014 6:44:15 PM com.github.fommil.netlib.BLAS <clinit>
                                                   //| WARNING: Failed to load implementation from: com.github.fommil.netlib.Native
                                                   //| RefBLAS
                                                   //| res2: breeze.linalg.DenseVector[Double] = DenseVector(0.1, 0.2)

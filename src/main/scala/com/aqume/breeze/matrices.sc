@@ -20,10 +20,10 @@ object matrices {
   
   m(1,::)                                         //> res1: breeze.linalg.Transpose[breeze.linalg.DenseVector[Double]] = Transpose
                                                   //| (DenseVector(2.0, 7.0, 12.0, 17.0))
-  m(1,::) := linspace(1.0,2.0,4).t                //> Jun 29, 2014 10:15:49 PM com.github.fommil.netlib.BLAS <clinit>
+  m(1,::) := linspace(1.0,2.0,4).t                //> Jul 7, 2014 11:42:12 AM com.github.fommil.netlib.BLAS <clinit>
                                                   //| WARNING: Failed to load implementation from: com.github.fommil.netlib.Native
                                                   //| SystemBLAS
-                                                  //| Jun 29, 2014 10:15:49 PM com.github.fommil.netlib.BLAS <clinit>
+                                                  //| Jul 7, 2014 11:42:12 AM com.github.fommil.netlib.BLAS <clinit>
                                                   //| WARNING: Failed to load implementation from: com.github.fommil.netlib.Native
                                                   //| RefBLAS
                                                   //| res2: breeze.linalg.Transpose[breeze.linalg.DenseVector[Double]] = Transpose

@@ -1,7 +1,7 @@
 package com.aqume.breeze
 
 import breeze.linalg._
-import breeze.numerics._
+//import breeze.numerics._
 
 object QuickReference3 {
 
@@ -89,14 +89,13 @@ object QuickReference3 {
   	(m1 :== m4).toDenseMatrix
   )                                               //> false  true   false  false  false  
                                                   //| false  false  true   true   true   
-  // Inplace scalar addition NOTE: Inplace reassigns values to same Vector and Matrix
+  // Inplace scalar addition NOTE: Inplace operations reassign values to same Vector and Matrix
   val v5 = v1 :+= 10                              //> v5  : breeze.linalg.DenseVector[Int] = DenseVector(11, 12, 13, 14, 15, 16, 
                                                   //| 17, 18, 19, 20)
   // play
   (v5 :== v2).toArray                             //> res5: Array[Boolean] = Array(true, true, true, true, true, true, true, true
                                                   //| , true, true)
   
-  //val m5 = (m1 :+= 10)
   (m1 :+= 10) :== m2                              //> res6: breeze.linalg.DenseMatrix[Boolean] = true  true  true  true  true  
                                                   //| true  true  true  true  true  
   // Inplace scalar multiplication
@@ -104,6 +103,7 @@ object QuickReference3 {
                                                   //| 24  28  32  36  40  
   // Vector dot product
   v1 dot v2                                       //> res8: Int = 2485
+  
   val v6 = m1(0,::)                               //> v6  : breeze.linalg.Transpose[breeze.linalg.DenseVector[Int]] = Transpose(D
                                                   //| enseVector(22, 26, 30, 34, 38))
   val v7 = m1(1,::)                               //> v7  : breeze.linalg.Transpose[breeze.linalg.DenseVector[Int]] = Transpose(D

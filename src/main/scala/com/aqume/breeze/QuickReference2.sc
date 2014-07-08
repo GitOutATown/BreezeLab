@@ -1,7 +1,7 @@
 package com.aqume.breeze
 
 import breeze.linalg._
-import breeze.numerics._
+//import breeze.numerics._
 
 object QuickReference2 {
 
@@ -109,7 +109,8 @@ object QuickReference2 {
   // Matrix vertical concatinate
   val m3 = m2(3 to 4,::)                          //> m3  : breeze.linalg.DenseMatrix[Int] = 70  9   14  19  24  
                                                   //| 70  10  15  20  25  
-  println("\n" + DenseMatrix.vertcat(m3, m2))     //> 
+  println("\n" + DenseMatrix.vertcat(m3, m2) + "\n")
+                                                  //> 
                                                   //| 70  9   14  19  24  
                                                   //| 70  10  15  20  25  
                                                   //| 70  6   42  42  42  
@@ -117,6 +118,7 @@ object QuickReference2 {
                                                   //| 70  8   42  42  42  
                                                   //| 70  9   14  19  24  
                                                   //| 70  10  15  20  25  
+                                                  //| 
   val m4 = m2(::, 3 to -1)                        //> m4  : breeze.linalg.DenseMatrix[Int] = 42  42  
                                                   //| 42  42  
                                                   //| 42  42  

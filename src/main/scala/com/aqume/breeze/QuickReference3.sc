@@ -110,4 +110,17 @@ object QuickReference3 {
                                                   //| enseVector(24, 28, 32, 36, 40))
   v6.t dot v7.t                                   //> res9: Int = 4960
   
+  // Elementwise max
+  v1                                              //> res10: breeze.linalg.DenseVector[Int] = DenseVector(11, 12, 13, 14, 15, 16,
+                                                  //|  17, 18, 19, 20)
+  max(v1)                                         //> res11: Int = 20
+  println("\nm1:\n" + m1 + "\n")                  //> 
+                                                  //| m1:
+                                                  //| 22  26  30  34  38  
+                                                  //| 24  28  32  36  40  
+                                                  //| 
+  max(m1)                                         //> res12: Int = 40
+  // Elementwise argmax
+  argmax(v1)                                      //> res13: Int = 9
+  argmax(m1)                                      //> res14: (Int, Int) = (1,4)
 }

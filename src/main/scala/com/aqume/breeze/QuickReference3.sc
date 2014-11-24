@@ -54,8 +54,10 @@ object QuickReference3 {
   
   //-------- Operations -----------------------------//
   
-  // Elementwise addition
+  // Elementwise addition (both operators work)
   v1 + v2                                         //> res0: breeze.linalg.DenseVector[Int] = DenseVector(12, 14, 16, 18, 20, 22, 2
+                                                  //| 4, 26, 28, 30)
+  v1 :+ v2                                        //> res1: breeze.linalg.DenseVector[Int] = DenseVector(12, 14, 16, 18, 20, 22, 2
                                                   //| 4, 26, 28, 30)
   println("\nm1 + m2:\n" + (m1 + m2))             //> 
                                                   //| m1 + m2:
@@ -66,61 +68,91 @@ object QuickReference3 {
                                                   //| m1 + m3:
                                                   //| 12  15  18  21  24  
                                                   //| 18  21  24  27  30  
+  
+  // Elementwise subtraction
+  v2 :- v1                                        //> res2: breeze.linalg.DenseVector[Int] = DenseVector(10, 10, 10, 10, 10, 10, 1
+                                                  //| 0, 10, 10, 10)
+  v2 - v1                                         //> res3: breeze.linalg.DenseVector[Int] = DenseVector(10, 10, 10, 10, 10, 10, 1
+                                                  //| 0, 10, 10, 10)
+  v1 - v2                                         //> res4: breeze.linalg.DenseVector[Int] = DenseVector(-10, -10, -10, -10, -10, 
+                                                  //| -10, -10, -10, -10, -10)
   // Elementwise multiplication
-  v1 :* v2                                        //> res1: breeze.linalg.DenseVector[Int] = DenseVector(11, 24, 39, 56, 75, 96, 1
+  //v1 * v2 ERROR
+  v1 :* v2                                        //> res5: breeze.linalg.DenseVector[Int] = DenseVector(11, 24, 39, 56, 75, 96, 1
                                                   //| 19, 144, 171, 200)
   println("\nm1 * m2:\n" + (m1 :* m2))            //> 
                                                   //| m1 * m2:
                                                   //| 11  39  75  119  171  
                                                   //| 24  56  96  144  200  
   // Elementwise comparison
-  (v1 :< v2).toArray                              //> res2: Array[Boolean] = Array(true, true, true, true, true, true, true, true,
-                                                  //|  true, true)
-  (v1 :< v3).toArray                              //> res3: Array[Boolean] = Array(false, false, false, false, false, false, false
-                                                  //| , true, true, true)
+  (v1 :< v2).toArray                              //> res6: Array[Boolean] = Array(true, true, true, true, true, true, true, true
+                                                  //| , true, true)
+  (v1 :< v3).toArray                              //> res7: Array[Boolean] = Array(false, false, false, false, false, false, fals
+                                                  //| e, true, true, true)
   println(
   	(m1 :< m4).toDenseMatrix
   )                                               //> true  false  true   true   true   
                                                   //| true  true   false  false  false  
   // Elementwise equals
-  (v1 :== v3).toArray                             //> res4: Array[Boolean] = Array(true, false, true, false, false, false, true, 
+  (v1 :== v3).toArray                             //> res8: Array[Boolean] = Array(true, false, true, false, false, false, true, 
                                                   //| false, false, false)
   println(
   	(m1 :== m4).toDenseMatrix
   )                                               //> false  true   false  false  false  
                                                   //| false  false  true   true   true   
   // Inplace scalar addition NOTE: Inplace operations reassign values to same Vector and Matrix
+  v1                                              //> res9: breeze.linalg.DenseVector[Int] = DenseVector(1, 2, 3, 4, 5, 6, 7, 8, 
+                                                  //| 9, 10)
   val v5 = v1 :+= 10                              //> v5  : breeze.linalg.DenseVector[Int] = DenseVector(11, 12, 13, 14, 15, 16, 
                                                   //| 17, 18, 19, 20)
+  v5                                              //> res10: breeze.linalg.DenseVector[Int] = DenseVector(11, 12, 13, 14, 15, 16,
+                                                  //|  17, 18, 19, 20)
+  v1                                              //> res11: breeze.linalg.DenseVector[Int] = DenseVector(11, 12, 13, 14, 15, 16,
+                                                  //|  17, 18, 19, 20)
+  v2                                              //> res12: breeze.linalg.DenseVector[Int] = DenseVector(11, 12, 13, 14, 15, 16,
+                                                  //|  17, 18, 19, 20)
   // play
-  (v5 :== v2).toArray                             //> res5: Array[Boolean] = Array(true, true, true, true, true, true, true, true
-                                                  //| , true, true)
+  (v5 :== v2).toArray                             //> res13: Array[Boolean] = Array(true, true, true, true, true, true, true, tru
+                                                  //| e, true, true)
+  v5                                              //> res14: breeze.linalg.DenseVector[Int] = DenseVector(11, 12, 13, 14, 15, 16,
+                                                  //|  17, 18, 19, 20)
+  v2                                              //> res15: breeze.linalg.DenseVector[Int] = DenseVector(11, 12, 13, 14, 15, 16,
+                                                  //|  17, 18, 19, 20)
   
-  (m1 :+= 10) :== m2                              //> res6: breeze.linalg.DenseMatrix[Boolean] = true  true  true  true  true  
+  (m1 :+= 10) :== m2                              //> res16: breeze.linalg.DenseMatrix[Boolean] = true  true  true  true  true  
                                                   //| true  true  true  true  true  
+  
+  // Inplace scalar subtraction (the colon (:) seems to have NO EFFECT!)
+  val v8 = DenseVector(5,4,3)                     //> v8  : breeze.linalg.DenseVector[Int] = DenseVector(5, 4, 3)
+  v8 :- 2                                         //> res17: breeze.linalg.DenseVector[Int] = DenseVector(3, 2, 1)
+  v8 - 2                                          //> res18: breeze.linalg.DenseVector[Int] = DenseVector(3, 2, 1)
+  v8                                              //> res19: breeze.linalg.DenseVector[Int] = DenseVector(5, 4, 3)
+  v8 :-= 2                                        //> res20: breeze.linalg.DenseVector[Int] = DenseVector(3, 2, 1)
+  v8 -= 2                                         //> res21: breeze.linalg.DenseVector[Int] = DenseVector(1, 0, -1)
+  
   // Inplace scalar multiplication
-  m1 :*= 2                                        //> res7: breeze.linalg.DenseMatrix[Int] = 22  26  30  34  38  
+  m1 :*= 2                                        //> res22: breeze.linalg.DenseMatrix[Int] = 22  26  30  34  38  
                                                   //| 24  28  32  36  40  
   // Vector dot product
-  v1 dot v2                                       //> res8: Int = 2485
+  v1 dot v2                                       //> res23: Int = 2485
   
   val v6 = m1(0,::)                               //> v6  : breeze.linalg.Transpose[breeze.linalg.DenseVector[Int]] = Transpose(D
                                                   //| enseVector(22, 26, 30, 34, 38))
   val v7 = m1(1,::)                               //> v7  : breeze.linalg.Transpose[breeze.linalg.DenseVector[Int]] = Transpose(D
                                                   //| enseVector(24, 28, 32, 36, 40))
-  v6.t dot v7.t                                   //> res9: Int = 4960
+  v6.t dot v7.t                                   //> res24: Int = 4960
   
   // Elementwise max
-  v1                                              //> res10: breeze.linalg.DenseVector[Int] = DenseVector(11, 12, 13, 14, 15, 16,
+  v1                                              //> res25: breeze.linalg.DenseVector[Int] = DenseVector(11, 12, 13, 14, 15, 16,
                                                   //|  17, 18, 19, 20)
-  max(v1)                                         //> res11: Int = 20
+  max(v1)                                         //> res26: Int = 20
   println("\nm1:\n" + m1 + "\n")                  //> 
                                                   //| m1:
                                                   //| 22  26  30  34  38  
                                                   //| 24  28  32  36  40  
                                                   //| 
-  max(m1)                                         //> res12: Int = 40
+  max(m1)                                         //> res27: Int = 40
   // Elementwise argmax
-  argmax(v1)                                      //> res13: Int = 9
-  argmax(m1)                                      //> res14: (Int, Int) = (1,4)
+  argmax(v1)                                      //> res28: Int = 9
+  argmax(m1)                                      //> res29: (Int, Int) = (1,4)
 }
